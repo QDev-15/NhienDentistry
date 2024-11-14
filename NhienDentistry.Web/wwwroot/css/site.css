@@ -1,10 +1,10 @@
 html {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
@@ -19,4 +19,62 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.box-top {
+    background-color: #917600;
+    color: #FFF;
+    height: 38px;
+    line-height: 38px;
+    position: relative;
+}
+.box-top i.bi {
+    color: #CF9A2C;
+    background: white;
+    padding: 3px 7px 5px 8px;
+    border-radius: 50%;
+}
+    .box-top .item {
+        display: inline-block;
+        padding: 0 13px 0 13px;
+        position: relative;
+        color: #f9f9f9;
+    }
+        .box-top .item a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }       
+        .box-top .item span {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    .box-top .social {
+        position: relative;
+        padding-left: 10px;
+    }
+
+        .box-top .social a {
+            margin: 0 2px;
+        }
+    .box-top .open {
+        position: relative;
+    }
+    .box-top .item-after:after {
+        content: ""; /* display: block; */
+        position: absolute;
+        width: 1px;
+        height: 12px;
+        top: 13px;
+        right: 0;
+        background-color: #FFF;
+    }
+.logo-brand img {
+    height: 40px;
+    width: 40px;
+}
+.bg-custom {
+    /*background-image: url(../assets/img/background.png);*/
+    background: #231f20;
 }
