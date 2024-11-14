@@ -446,31 +446,34 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
-.container {
+.owl-carousel .container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
   @media (min-width: 576px) {
-    .container {
+    .owl-carousel .container {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .container {
+    .owl-carousel .container {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .container {
+    .owl-carousel .container {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .container {
+    .owl-carousel .container {
       max-width: 1140px; } }
 
-.container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto; }
+.carousel-container.container-fluid {
+    padding: 0;
+}
+.carousel-container .container-fluid {
+    width: 100%;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .row {
   display: -webkit-box;
@@ -3439,8 +3442,8 @@ input[type="button"].btn-block {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem; }
-  .navbar > .container,
-  .navbar > .container-fluid {
+  .navbar > .owl-carousel .container,
+  .navbar > .owl-carousel .container-fluid {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3517,8 +3520,8 @@ input[type="button"].btn-block {
   background-size: 100% 100%; }
 
 @media (max-width: 575.98px) {
-  .navbar-expand-sm > .container,
-  .navbar-expand-sm > .container-fluid {
+  .navbar-expand-sm > .owl-carousel .container,
+  .navbar-expand-sm > .owl-carousel .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
 
@@ -3541,8 +3544,8 @@ input[type="button"].btn-block {
       .navbar-expand-sm .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-sm > .container,
-    .navbar-expand-sm > .container-fluid {
+    .navbar-expand-sm > .owl-carousel .container,
+    .navbar-expand-sm > .owl-carousel .container-fluid {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-sm .navbar-collapse {
@@ -3555,8 +3558,8 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 767.98px) {
-  .navbar-expand-md > .container,
-  .navbar-expand-md > .container-fluid {
+  .navbar-expand-md > .owl-carousel .container,
+  .navbar-expand-md > .owl-carousel .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
 
@@ -3579,8 +3582,8 @@ input[type="button"].btn-block {
       .navbar-expand-md .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-md > .container,
-    .navbar-expand-md > .container-fluid {
+    .navbar-expand-md > .owl-carousel .container,
+    .navbar-expand-md > .owl-carousel .container-fluid {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-md .navbar-collapse {
@@ -3593,8 +3596,8 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 991.98px) {
-  .navbar-expand-lg > .container,
-  .navbar-expand-lg > .container-fluid {
+  .navbar-expand-lg > .owl-carousel .container,
+  .navbar-expand-lg > .owl-carousel .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
 
@@ -3617,8 +3620,8 @@ input[type="button"].btn-block {
       .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-lg > .container,
-    .navbar-expand-lg > .container-fluid {
+    .navbar-expand-lg > .owl-carousel .container,
+    .navbar-expand-lg > .owl-carousel .container-fluid {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-lg .navbar-collapse {
@@ -3631,8 +3634,8 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 1199.98px) {
-  .navbar-expand-xl > .container,
-  .navbar-expand-xl > .container-fluid {
+  .navbar-expand-xl > .owl-carousel .container,
+  .navbar-expand-xl > .owl-carousel .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
 
@@ -3655,8 +3658,8 @@ input[type="button"].btn-block {
       .navbar-expand-xl .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-xl > .container,
-    .navbar-expand-xl > .container-fluid {
+    .navbar-expand-xl > .owl-carousel .container,
+    .navbar-expand-xl > .owl-carousel .container-fluid {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-xl .navbar-collapse {
@@ -3676,8 +3679,8 @@ input[type="button"].btn-block {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start; }
-  .navbar-expand > .container,
-  .navbar-expand > .container-fluid {
+  .navbar-expand > .owl-carousel .container,
+  .navbar-expand > .owl-carousel .container-fluid {
     padding-right: 0;
     padding-left: 0; }
   .navbar-expand .navbar-nav {
@@ -3690,8 +3693,8 @@ input[type="button"].btn-block {
     .navbar-expand .navbar-nav .nav-link {
       padding-right: 0.5rem;
       padding-left: 0.5rem; }
-  .navbar-expand > .container,
-  .navbar-expand > .container-fluid {
+  .navbar-expand > .owl-carousel .container,
+  .navbar-expand > .owl-carousel .container-fluid {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap; }
   .navbar-expand .navbar-collapse {
@@ -8107,7 +8110,7 @@ a.text-dark:hover, a.text-dark:focus {
     size: a3; }
   body {
     min-width: 992px !important; }
-  .container {
+  .owl-carousel .container {
     min-width: 992px !important; }
   .navbar {
     display: none; }
