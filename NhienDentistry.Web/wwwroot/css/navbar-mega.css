@@ -51,6 +51,7 @@
         .navbar-mega.sticky-top.navbar-mega-visible {
             transform: translateY(0);
             transition: transform 0.8s ease-in-out;
+            opacity: 97%;
         }
     .navbar-mega-container {
         height: 100%
