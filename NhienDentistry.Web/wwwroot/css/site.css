@@ -23,7 +23,7 @@ body {
 }
 
 .box-top {
-    background-color: #bec72d;
+    background-color: #EEA616;
     color: #FFF;
     height: 38px;
     line-height: 38px;
@@ -37,13 +37,11 @@ i.bi {
 }
 i.fa {
     padding: 5px;
-    background: #fff8d3;
-    color: #432d1a;
+    background: #ffffff;
+    color: #eea616;
     border-radius: 50%;
-    border: 1px solid #b9b9b9;
-    font-size: 12px;
-    width: 24px;
-    height: 24px;
+    border: 1px solid #ededed;
+    font-size: 16px;
     text-align: center;
 }
 /*i.bi-facebook, i.fa-facebook-f, i.fa-square-facebook, i.fa-facebook {
@@ -96,8 +94,7 @@ i.bi-telephone-inbound, i.fa-phone {
         background-color: #FFF;
     }
 .logo-brand img {
-    height: 40px;
-    width: 40px;
+    height: 110px;
 }
 .bg-custom {
     /*background-image: url(../assets/img/background.png);*/

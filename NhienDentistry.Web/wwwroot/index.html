@@ -15,241 +15,314 @@
 
 </head>
 <body>
-    <header>
-        <div class="box-top d-none d-md-block">
-            <div class="container-lg container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-sm-9 d-flex">
-                        <div class="hotline">
-                            <i class="fa fa-solid fa-phone"></i>
-                            <span class="item item-after">Hà Nội: <a href="tel:19009999">1900 9999</a></span>
-                            <span class="item ">TP.Hồ Chí Minh: <a href="tel:1900 9991">1900 9991</a></span>
-                        </div>
+    <div class="box-top d-none d-md-block">
+        <div class="container-lg container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-sm-9 d-flex">
+                    <div class="hotline">
+                        <i class="fa fa-solid fa-phone"></i>
+                        <span class="item item-after">Hà Nội: <a href="tel:19009999">1900 9999</a></span>
+                        <span class="item ">TP.Hồ Chí Minh: <a href="tel:1900 9991">1900 9991</a></span>
                     </div>
-                    <div class="col-lg-6 col-sm-3 d-flex justify-content-end">
-                        <div class="open item-after d-none d-lg-block">
-                            <span class="item">Giờ mở cửa: <span>8h00 - 20h00</span></span>
-                        </div>
-                        <div class="social">
-                            <a href="https://www.facebook.com/nhakhoanhien86" target="_blank">
-                                <i class="fa fa-brands fa-facebook"></i>
-                            </a>
-                            <a href="https://www.instagram.com/nhakhoanhien86" target="_blank">
-                                <i class="fa fa-brands fa-instagram"></i>
-                            </a>
-                            <a href="https://www.youtube.com/channel/nhakhoanhien86" target="_blank">
-                                <i class="fa fa-brands fa-youtube"></i>
-                            </a>
-                        </div>
+                </div>
+                <div class="col-lg-6 col-sm-3 d-flex justify-content-end">
+                    <div class="open item-after d-none d-lg-block">
+                        <span class="item">Giờ mở cửa: <span>8h00 - 20h00</span></span>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.facebook.com/nhakhoanhien86" target="_blank">
+                            <i class="fa fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/nhakhoanhien86" target="_blank">
+                            <i class="fa fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/nhakhoanhien86" target="_blank">
+                            <i class="fa fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </div>
 
-                    </div>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-mega sticky-top navbar-expand-md navbar-toggleable-md navbar-dark bg-custom box-shadow">
-            <div class="container-lg container-fluid">
-                <a class="navbar-brand logo-brand justify-content-sm-center" href="/" asp-area="" asp-controller="Home" asp-action="index">
-                    <img src="assets/logo/LOGO.png" />
+    </div>
+    <nav class="navbar navbar-mega navbar-expand-lg navbar-toggleable-lg box-shadow navbar-light ">
+        <div class="navbar-mega-container container-lg container-fluid">
+            <a class="navbar-brand logo-brand justify-content-sm-center d-lg-none mx-auto" href="/" asp-area="" asp-controller="Home" asp-action="index">
+                <img src="assets/logo/LOGO.png" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item nav-li-0 dropdown">
+                        <a class="nav-link dropdown-toggle" asp-area="" asp-controller="Home" asp-action="Privacy" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Răng sứ
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+
+
+                            <div class="container">
+                                <div class="row">
+                                    <span class="text-uppercase col-12">Privacy</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                </div>
+                            </div>
+                            <!--  /.container  -->
+
+
+                        </div>
+                    </li>
+                    <li class="nav-item nav-li-0 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Niềng răng
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+
+
+                            <div class="container">
+                                <div class="row">
+                                    <span class="text-uppercase col-12">Niềng răng</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                </div>
+                            </div>
+                            <!--  /.container  -->
+
+
+                        </div>
+                    </li>
+                    <li class="nav-item nav-li-0 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Trồng răng
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+
+
+                            <div class="container">
+                                <div class="row">
+                                    <span class="text-uppercase col-12">Trồng răng</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
+                                </div>
+                            </div>
+                            <!--  /.container  -->
+
+
+                        </div>
+                    </li>
+
+
+                </ul>
+                <a class="navbar-brand logo-brand justify-content-sm-center m-0 d-none d-lg-block" href="/" asp-area="" asp-controller="Home" asp-action="index">
+                    <img src="assets/logo/LOGO NHIEN DENTAL CLINIC.png" />
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" asp-area="" asp-controller="Home" asp-action="Privacy" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Privacy
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-
-                                <div class="container">
-                                    <div class="row">
-                                        <span class="text-uppercase col-12">Privacy</span>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                    </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item nav-li-0 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bệnh lý
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="container">
+                                <div class="row">
+                                    <span class="text-uppercase col-12">Bệnh lý</span>
                                 </div>
-                                <!--  /.container  -->
-
-
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Category 2
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-
-                                <div class="container">
-                                    <div class="row">
-                                        <span class="text-uppercase col-12">Category 2</span>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
                                     </div>
+                                    <!-- /.col-md-4  -->
+                                    <div class="col-md-4">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link item</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-4  -->
                                 </div>
-                                <!--  /.container  -->
-
-
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Category 3
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-
-                                <div class="container">
-                                    <div class="row">
-                                        <span class="text-uppercase col-12">Category 3</span>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                        <div class="col-md-4">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="#">Active</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">Link item</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.col-md-4  -->
-                                    </div>
-                                </div>
-                                <!--  /.container  -->
-
-
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
+                            <!--  /.container  -->
+                        </div>
+                    </li>
+                    <li class="nav-item nav-li-0">
+                        <a class="nav-link" href="#" role="button">
+                            Nhiên Dentistry
+                        </a>
+                    </li>
+                    <li class="nav-item nav-li-0">
+                        <a class="nav-link" href="#" role="button">
+                            Liên hệ
+                        </a>
+                    </li>
+                </ul>
             </div>
+        </div>
 
-        </nav>
-    </header>
+    </nav>
+    
     <div class="container-fluid carousel-container">
         <div class="container-fluid home-slider owl-carousel">
             <div class="slider-item" style="background-image: url(./plugins/carousel-01/images/mockup1.png);">
@@ -303,90 +376,7 @@
         </main>
     </div>
     <div class="b-example-divider"></div>
-    <div class="container-fluid container-fluid-chuyengia">
-        <div class="container">
-                            <div class="box_title"><h2 class="title"><a href="/rang-su-tham-my" title="Răng sứ thẩm mỹ">Răng sứ thẩm mỹ</a></h2><a href="/rang-su-tham-my" class="view_all">Xem tất cả</a></div>
-                            <div class="box_desc">Win Smile tập trung cung cấp các dịch vụ nha khoa thẩm mỹ trong môi trường nhẹ nhàng, chu đáo, chuyên nghiệp. Đảm bảo mọi khách hàng tới Win Smile đều có những trải nhiệm nha khoa đẳng cấp, ưng ý nhất cho đường cười của chính mình. </div>
-                            <div class="box_content">
-                                <div class="row productGrid">
-                                    <div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/dan-su-veneer-emax" title="Dán sứ Veneer Emax"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/ngo-lan-huong.jpg" alt="Dán sứ Veneer Emax"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/dan-su-veneer-emax" title="Dán sứ Veneer Emax">Dán sứ Veneer Emax</a></h3>
-                                </div>
-                            </div>
-                        </div><div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/rang-su-lava-3m" title="Răng sứ Lava 3M"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/quynh-kool.jpg" alt="Răng sứ Lava 3M"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/rang-su-lava-3m" title="Răng sứ Lava 3M">Răng sứ Lava 3M</a></h3>
-                                </div>
-                            </div>
-                        </div><div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/rang-su-orodent" title="Răng sứ Orodent"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/bui-bich-uyen.jpg" alt="Răng sứ Orodent"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/rang-su-orodent" title="Răng sứ Orodent">Răng sứ Orodent</a></h3>
-                                </div>
-                            </div>
-                        </div><div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/rang-su-biodiamond" title="Răng sứ Bio Diamond"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/hoang-phi-huyen.jpg" alt="Răng sứ Bio Diamond"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/rang-su-biodiamond" title="Răng sứ Bio Diamond">Răng sứ Bio Diamond</a></h3>
-                                </div>
-                            </div>
-                        </div><div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/rang-su-nacera" title="Răng sứ Nacera"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/nguyen-tat-kiem.jpg" alt="Răng sứ Nacera"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/rang-su-nacera" title="Răng sứ Nacera">Răng sứ Nacera</a></h3>
-                                </div>
-                            </div>
-                        </div><div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/rang-su-nacera-q3" title="Răng sứ Nacera Q3"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/tran-quang-minh.jpg" alt="Răng sứ Nacera Q3"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/rang-su-nacera-q3" title="Răng sứ Nacera Q3">Răng sứ Nacera Q3</a></h3>
-                                </div>
-                            </div>
-                        </div><div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/rang-su-ceramill" title="Răng sứ Ceramill Zolid"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/nguyen-quyen.jpg" alt="Răng sứ Ceramill Zolid"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/rang-su-ceramill" title="Răng sứ Ceramill Zolid">Răng sứ Ceramill Zolid</a></h3>
-                                </div>
-                            </div>
-                        </div><div class="col-sm-3 col-xs-6">
-                            <div class="item">
-                                <div class="image">
-                                    <a href="/rang-su-venus" title="Răng sứ Venus"><img src="/public/files/upload/default/thumbs/images/anh-thumb-home/lan-phuong.jpg" alt="Răng sứ Venus"></a>
-                                </div>
-                                <div class="info">
-                                    <h3 class="title"><a href="/rang-su-venus" title="Răng sứ Venus">Răng sứ Venus</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                                </div>
-                            </div>
-                            <div class="control"><a href="/rang-su-tham-my" class="btn_yellow">Lý do hàng ngàn khách hàng lựa chọn Win Smile?</a></div>
-                        </div>
-    </div>
+
     <div class="b-example-divider"></div>
     <div class="container-fluid container-fluid-footer">
         <div class="container">
