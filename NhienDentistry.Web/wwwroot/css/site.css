@@ -80,6 +80,7 @@ i.bi-telephone-inbound, i.fa-phone {
 
         .box-top .social a {
             margin: 0 2px;
+            color: transparent;
         }
     .box-top .open {
         position: relative;
