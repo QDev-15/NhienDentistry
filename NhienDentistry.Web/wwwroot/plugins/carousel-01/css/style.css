@@ -132,17 +132,20 @@ sub {
 sup {
   top: -.5em; }
 
-a {
-  color: #007bff;
-  text-decoration: none;
-  background-color: transparent; }
-  a:hover {
+.carousel-container a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.carousel-container a:hover {
     color: #0056b3;
-    text-decoration: underline; }
+    text-decoration: underline;
+}
 
-a:not([href]):not([tabindex]) {
-  color: inherit;
-  text-decoration: none; }
+.carousel-container a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+}
   a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
     color: inherit;
     text-decoration: none; }
@@ -7798,16 +7801,18 @@ body {
   line-height: 1.8;
   font-weight: normal; }
 
-a {
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
-  color: #3e64ff; }
-  a:hover, a:focus {
+.carousel-container a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    color: #3e64ff;
+}
+.carousel-container a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
     -webkit-box-shadow: none;
-    box-shadow: none; }
+    box-shadow: none;
+}
 
 button {
   -webkit-transition: .3s all ease;
