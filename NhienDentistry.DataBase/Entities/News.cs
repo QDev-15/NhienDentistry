@@ -14,7 +14,7 @@ namespace NhienDentistry.DataBase.Entities
 
         public List<Image> Images { get; set; } = new List<Image>();
 
-        public string? LanguageId { get; set; }
+        public int? LanguageId { get; set; }
         public Language Language { get; set; }
         
         public DateTime CreatedDate { get; set; }

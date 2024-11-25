@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Configuration;
+using NhienDentistry.DataBase.Configurations;
 using NhienDentistry.DataBase.Entities;
 using NhienDentistry.DataBase.Extensions;
 using System;
@@ -14,31 +17,26 @@ namespace NhienDentistry.DataBase.EF
     {
         public NhienDbContext(DbContextOptions options) : base(options)
         {
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            ////Configure using Fluent API
-            //modelBuilder.ApplyConfiguration(new CartConfiguration());
+            //Configure using Fluent API
 
-            //modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            //modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
-            //modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
+            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            modelBuilder.ApplyConfiguration(new BaseConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryTranslationConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
 
-            //modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
-            //modelBuilder.ApplyConfiguration(new CategoryTranslationConfiguration());
-            //modelBuilder.ApplyConfiguration(new ContactConfiguration());
-            //modelBuilder.ApplyConfiguration(new LanguageConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
-            //modelBuilder.ApplyConfiguration(new PromotionConfiguration());
-            //modelBuilder.ApplyConfiguration(new TransactionConfiguration());
-
-            //modelBuilder.ApplyConfiguration(new AppUserConfiguration());
-            //modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
-            //modelBuilder.ApplyConfiguration(new SlideConfiguration());
+            modelBuilder.ApplyConfiguration(new ImageConfiguration());
+            modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+            modelBuilder.ApplyConfiguration(new LoggerConfiguration());
+            modelBuilder.ApplyConfiguration(new NewsConfiguration());
+            modelBuilder.ApplyConfiguration(new SlideConfiguration());
 
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
@@ -51,8 +49,13 @@ namespace NhienDentistry.DataBase.EF
             modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .ConfigureWarnings(warnings =>
+                    warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+        }
 
-        
         public DbSet<AppConfig> AppConfigs { get; set; }
         public DbSet<Base> Bases { get; set; }
         public DbSet<Category> Categories { get; set; }

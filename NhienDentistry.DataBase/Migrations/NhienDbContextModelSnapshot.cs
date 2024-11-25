@@ -148,26 +148,26 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppConfigs");
+                    b.ToTable("AppConfigs", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Key = "HomeTitle",
-                            Value = "This is home page of eShopSolution"
+                            Key = "hotline-hcm",
+                            Value = "19009090"
                         },
                         new
                         {
                             Id = 2,
-                            Key = "HomeKeyword",
-                            Value = "This is keyword of eShopSolution"
+                            Key = "facebook",
+                            Value = "nhien86"
                         },
                         new
                         {
                             Id = 3,
-                            Key = "HomeDescription",
-                            Value = "This is description of eShopSolution"
+                            Key = "hotline-hanoi",
+                            Value = "19001010"
                         });
                 });
 
@@ -182,7 +182,8 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -192,7 +193,7 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("AppRoles", (string)null);
 
                     b.HasData(
                         new
@@ -227,11 +228,13 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -265,23 +268,23 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("AppUsers", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9cf9dbc0-b7e5-4fb9-84eb-5c04808bb368",
+                            ConcurrencyStamp = "072baa5a-5d4e-4f8f-9bbf-0bedeb5016c4",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "tedu.international@gmail.com",
+                            Email = "nguyenquynhvp.ictu@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Quynh",
                             LastName = "Nguyen",
                             LockoutEnabled = false,
-                            NormalizedEmail = "tedu.international@gmail.com",
+                            NormalizedEmail = "nguyenquynhvp.ictu@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOOISuz1mnFobZt4NL9wB8P/H4aGC2V1ZjIQIdIMakJSNBH19/DXYsYyUlbBMpX+ZQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDJu1jnqZ6sclneubLo8h6Vhh0nS/jBFd2ZgHpbWCmfFvcmsnD7j1Q1JQkgFSLmkLA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -299,7 +302,8 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -310,7 +314,8 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -320,7 +325,7 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Bases");
+                    b.ToTable("Bases", (string)null);
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Category", b =>
@@ -346,7 +351,9 @@ namespace NhienDentistry.DataBase.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -355,14 +362,14 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Alias = "rang-su",
-                            CreatedDate = new DateTime(2024, 11, 25, 1, 35, 54, 642, DateTimeKind.Local).AddTicks(9778),
+                            CreatedDate = new DateTime(2024, 11, 25, 22, 58, 42, 764, DateTimeKind.Local).AddTicks(2220),
                             Name = "Răng Sứ",
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -371,7 +378,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = 2,
                             Alias = "rang-nhua",
-                            CreatedDate = new DateTime(2024, 11, 25, 1, 35, 54, 644, DateTimeKind.Local).AddTicks(4651),
+                            CreatedDate = new DateTime(2024, 11, 25, 22, 58, 42, 766, DateTimeKind.Local).AddTicks(9546),
                             Name = "Răng Nhựa",
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -392,25 +399,30 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LanguageId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("LanguageId")
+                        .HasMaxLength(5)
+                        .IsUnicode(false)
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("SeoAlias")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("SeoDescription")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("SeoTitle")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -421,7 +433,7 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasIndex("LanguageId");
 
-                    b.ToTable("CategoryTranslations");
+                    b.ToTable("CategoryTranslations", (string)null);
 
                     b.HasData(
                         new
@@ -429,7 +441,7 @@ namespace NhienDentistry.DataBase.Migrations
                             Id = 1,
                             CategoryId = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LanguageId = "vi",
+                            LanguageId = 1,
                             Name = "Áo nam",
                             SeoAlias = "ao-nam",
                             SeoDescription = "Sản phẩm áo thời trang nam",
@@ -441,7 +453,7 @@ namespace NhienDentistry.DataBase.Migrations
                             Id = 2,
                             CategoryId = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LanguageId = "en",
+                            LanguageId = 2,
                             Name = "Men Shirt",
                             SeoAlias = "men-shirt",
                             SeoDescription = "The shirt products for men",
@@ -453,7 +465,7 @@ namespace NhienDentistry.DataBase.Migrations
                             Id = 3,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LanguageId = "vi",
+                            LanguageId = 1,
                             Name = "Áo nữ",
                             SeoAlias = "ao-nu",
                             SeoDescription = "Sản phẩm áo thời trang nữ",
@@ -465,7 +477,7 @@ namespace NhienDentistry.DataBase.Migrations
                             Id = 4,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LanguageId = "en",
+                            LanguageId = 2,
                             Name = "Women Shirt",
                             SeoAlias = "women-shirt",
                             SeoDescription = "The shirt products for women",
@@ -487,7 +499,8 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Message")
                         .IsRequired()
@@ -495,11 +508,13 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -509,7 +524,7 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Image", b =>
@@ -555,8 +570,17 @@ namespace NhienDentistry.DataBase.Migrations
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Language", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(5)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -566,19 +590,21 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Languages");
+                    b.ToTable("Languages", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "vi",
+                            Id = 1,
+                            Code = "vi",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDefault = true,
                             Name = "Tiếng Việt",
@@ -586,7 +612,8 @@ namespace NhienDentistry.DataBase.Migrations
                         },
                         new
                         {
-                            Id = "en",
+                            Id = 2,
+                            Code = "en",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDefault = false,
                             Name = "English",
@@ -621,7 +648,7 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Loggers");
+                    b.ToTable("Loggers", (string)null);
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.News", b =>
@@ -649,12 +676,13 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<long>("FileSize")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("LanguageId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
@@ -672,14 +700,14 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasIndex("LanguageId");
 
-                    b.ToTable("News");
+                    b.ToTable("Newss", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Alias = "",
-                            CreatedDate = new DateTime(2024, 11, 25, 1, 35, 54, 644, DateTimeKind.Local).AddTicks(9582),
+                            CreatedDate = new DateTime(2024, 11, 25, 22, 58, 42, 767, DateTimeKind.Local).AddTicks(7697),
                             Description = "Bài viết test",
                             FileSize = 0L,
                             Name = "",
@@ -702,11 +730,13 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
@@ -719,11 +749,12 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slides");
+                    b.ToTable("Slides", (string)null);
 
                     b.HasData(
                         new

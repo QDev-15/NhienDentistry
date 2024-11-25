@@ -1,7 +1,11 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NhienDentistry.DataBase.EF
 {
@@ -18,7 +22,6 @@ namespace NhienDentistry.DataBase.EF
 
             var optionsBuilder = new DbContextOptionsBuilder<NhienDbContext>();
             optionsBuilder.UseSqlServer(connectionString);
-
             return new NhienDbContext(optionsBuilder.Options);
         }
     }

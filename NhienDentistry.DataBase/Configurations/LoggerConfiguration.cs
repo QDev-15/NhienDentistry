@@ -14,7 +14,6 @@ namespace NhienDentistry.DataBase.Configurations
         {
             builder.ToTable("Loggers");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.UserId).IsRequired();
             builder.Property(x => x.Body).IsRequired();
             builder.Property(x => x.IdAddress).IsRequired();
