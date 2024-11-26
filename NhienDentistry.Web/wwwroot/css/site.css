@@ -102,17 +102,24 @@ i.bi-telephone-inbound, i.fa-phone {
     background: #231f20;
 }
 
-.b-example-divider {
+.b-divider {
     height: 20px;
+}
+.b-divider-shadow {
+    height: 30px;
+    box-shadow: inset 0px 3px 6px -5px rgb(0 0 0 / 20%), inset -40px 0px 0px rgb(253 253 253 / 25%), inset 0px 0px 11px 2px rgb(111 111 111 / 20%);
 }
 .container-fluid-chuyengia {
     background-image: url(./assets/img/bg-chuyengia.jpg);
 }
 .container-fluid-footer {
     background-color: #ededed;
-    box-shadow: 0px 5px 1px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 1px 6px rgba(0, 0, 0, 0.1);
 }
-
+.box_book {
+    background: url(./assets/img/bg_book.jpg) no-repeat top left;
+    background-size: cover;
+}
 /**
     actor list
 */
