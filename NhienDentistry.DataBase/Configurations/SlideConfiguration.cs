@@ -19,7 +19,8 @@ namespace NhienDentistry.DataBase.Configurations
             builder.Property(x => x.Description).HasMaxLength(200).IsRequired();
             builder.Property(x => x.Url).HasMaxLength(200).IsRequired();
             builder.Property(x => x.CreatedDate).IsRequired();
-            builder.HasOne(x => x.Image).WithOne(x => x.Slide).HasForeignKey<Image>(x => x.SlideId).IsRequired(false);
+            builder.HasOne(x => x.Image).WithMany(x => x.Slides).HasForeignKey(x => x.ImageId).IsRequired(false);
+            builder.HasOne(x => x.CreatedBy).WithMany(x => x.Slides).HasForeignKey(x => x.UserId).IsRequired();
         }
     }
 }

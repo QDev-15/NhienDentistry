@@ -130,6 +130,21 @@ namespace NhienDentistry.DataBase.Migrations
                     b.ToTable("AppUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("NewsImage", b =>
+                {
+                    b.Property<int>("ImagesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NewsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ImagesId", "NewsId");
+
+                    b.HasIndex("NewsId");
+
+                    b.ToTable("NewsImage");
+                });
+
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.AppConfig", b =>
                 {
                     b.Property<int>("Id")
@@ -214,6 +229,9 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AvatarId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -268,6 +286,8 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AvatarId");
+
                     b.ToTable("AppUsers", (string)null);
 
                     b.HasData(
@@ -275,7 +295,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "072baa5a-5d4e-4f8f-9bbf-0bedeb5016c4",
+                            ConcurrencyStamp = "b810eb5b-61d7-4c02-8b9b-64719542007c",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nguyenquynhvp.ictu@gmail.com",
                             EmailConfirmed = true,
@@ -284,7 +304,7 @@ namespace NhienDentistry.DataBase.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "nguyenquynhvp.ictu@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDJu1jnqZ6sclneubLo8h6Vhh0nS/jBFd2ZgHpbWCmfFvcmsnD7j1Q1JQkgFSLmkLA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENNTMxz2gfeaDSAlbRl+u9nn09U7UJ95ZsAouEGhZQoft/fx1IF4XMsVfZHBFUkgNw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -358,9 +378,14 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ParentId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Categories", (string)null);
 
@@ -369,19 +394,21 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = 1,
                             Alias = "rang-su",
-                            CreatedDate = new DateTime(2024, 11, 25, 22, 58, 42, 764, DateTimeKind.Local).AddTicks(2220),
+                            CreatedDate = new DateTime(2024, 11, 26, 15, 21, 8, 608, DateTimeKind.Local).AddTicks(2512),
                             Name = "Răng Sứ",
                             Status = 1,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         },
                         new
                         {
                             Id = 2,
                             Alias = "rang-nhua",
-                            CreatedDate = new DateTime(2024, 11, 25, 22, 58, 42, 766, DateTimeKind.Local).AddTicks(9546),
+                            CreatedDate = new DateTime(2024, 11, 26, 15, 21, 8, 609, DateTimeKind.Local).AddTicks(1403),
                             Name = "Răng Nhựa",
                             Status = 1,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         });
                 });
 
@@ -541,29 +568,25 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<long>("FileSize")
                         .HasColumnType("bigint");
 
-                    b.Property<int?>("NewsId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Path")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SlideId")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("NewsId");
-
-                    b.HasIndex("SlideId")
-                        .IsUnique()
-                        .HasFilter("[SlideId] IS NOT NULL");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Images");
                 });
@@ -666,6 +689,9 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("CreatedById")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -698,6 +724,8 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("CreatedById");
+
                     b.HasIndex("LanguageId");
 
                     b.ToTable("Newss", (string)null);
@@ -707,7 +735,8 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = 1,
                             Alias = "",
-                            CreatedDate = new DateTime(2024, 11, 25, 22, 58, 42, 767, DateTimeKind.Local).AddTicks(7697),
+                            CreatedById = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
+                            CreatedDate = new DateTime(2024, 11, 26, 15, 21, 8, 609, DateTimeKind.Local).AddTicks(3284),
                             Description = "Bài viết test",
                             FileSize = 0L,
                             Name = "",
@@ -733,6 +762,9 @@ namespace NhienDentistry.DataBase.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -752,7 +784,14 @@ namespace NhienDentistry.DataBase.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Slides", (string)null);
 
@@ -766,7 +805,8 @@ namespace NhienDentistry.DataBase.Migrations
                             SortOrder = 1,
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Url = "#"
+                            Url = "#",
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         },
                         new
                         {
@@ -777,7 +817,8 @@ namespace NhienDentistry.DataBase.Migrations
                             SortOrder = 2,
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Url = "#"
+                            Url = "#",
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         },
                         new
                         {
@@ -788,7 +829,8 @@ namespace NhienDentistry.DataBase.Migrations
                             SortOrder = 3,
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Url = "#"
+                            Url = "#",
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         },
                         new
                         {
@@ -799,7 +841,8 @@ namespace NhienDentistry.DataBase.Migrations
                             SortOrder = 4,
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Url = "#"
+                            Url = "#",
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         },
                         new
                         {
@@ -810,7 +853,8 @@ namespace NhienDentistry.DataBase.Migrations
                             SortOrder = 5,
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Url = "#"
+                            Url = "#",
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         },
                         new
                         {
@@ -821,8 +865,33 @@ namespace NhienDentistry.DataBase.Migrations
                             SortOrder = 6,
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Url = "#"
+                            Url = "#",
+                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de")
                         });
+                });
+
+            modelBuilder.Entity("NewsImage", b =>
+                {
+                    b.HasOne("NhienDentistry.DataBase.Entities.Image", null)
+                        .WithMany()
+                        .HasForeignKey("ImagesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NhienDentistry.DataBase.Entities.News", null)
+                        .WithMany()
+                        .HasForeignKey("NewsId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("NhienDentistry.DataBase.Entities.AppUser", b =>
+                {
+                    b.HasOne("NhienDentistry.DataBase.Entities.Image", "Avatar")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("AvatarId");
+
+                    b.Navigation("Avatar");
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Category", b =>
@@ -830,6 +899,12 @@ namespace NhienDentistry.DataBase.Migrations
                     b.HasOne("NhienDentistry.DataBase.Entities.Category", "Parent")
                         .WithMany("Categories")
                         .HasForeignKey("ParentId");
+
+                    b.HasOne("NhienDentistry.DataBase.Entities.AppUser", "AppUser")
+                        .WithMany("Categories")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Parent");
                 });
@@ -855,17 +930,13 @@ namespace NhienDentistry.DataBase.Migrations
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Image", b =>
                 {
-                    b.HasOne("NhienDentistry.DataBase.Entities.News", "News")
+                    b.HasOne("NhienDentistry.DataBase.Entities.AppUser", "User")
                         .WithMany("Images")
-                        .HasForeignKey("NewsId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("NhienDentistry.DataBase.Entities.Slide", "Slide")
-                        .WithOne("Image")
-                        .HasForeignKey("NhienDentistry.DataBase.Entities.Image", "SlideId");
-
-                    b.Navigation("News");
-
-                    b.Navigation("Slide");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.News", b =>
@@ -874,11 +945,45 @@ namespace NhienDentistry.DataBase.Migrations
                         .WithMany("News")
                         .HasForeignKey("CategoryId");
 
+                    b.HasOne("NhienDentistry.DataBase.Entities.AppUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("NhienDentistry.DataBase.Entities.Language", "Language")
                         .WithMany("Newss")
                         .HasForeignKey("LanguageId");
 
+                    b.Navigation("CreatedBy");
+
                     b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("NhienDentistry.DataBase.Entities.Slide", b =>
+                {
+                    b.HasOne("NhienDentistry.DataBase.Entities.Image", "Image")
+                        .WithMany("Slides")
+                        .HasForeignKey("ImageId");
+
+                    b.HasOne("NhienDentistry.DataBase.Entities.AppUser", "CreatedBy")
+                        .WithMany("Slides")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("NhienDentistry.DataBase.Entities.AppUser", b =>
+                {
+                    b.Navigation("Categories");
+
+                    b.Navigation("Images");
+
+                    b.Navigation("Slides");
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Category", b =>
@@ -890,22 +995,18 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Navigation("News");
                 });
 
+            modelBuilder.Entity("NhienDentistry.DataBase.Entities.Image", b =>
+                {
+                    b.Navigation("AppUsers");
+
+                    b.Navigation("Slides");
+                });
+
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Language", b =>
                 {
                     b.Navigation("CategoryTranslations");
 
                     b.Navigation("Newss");
-                });
-
-            modelBuilder.Entity("NhienDentistry.DataBase.Entities.News", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("NhienDentistry.DataBase.Entities.Slide", b =>
-                {
-                    b.Navigation("Image")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

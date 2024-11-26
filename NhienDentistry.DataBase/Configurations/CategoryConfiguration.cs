@@ -18,6 +18,7 @@ namespace NhienDentistry.DataBase.Configurations
             builder.Property(x => x.Status).HasDefaultValue(Status.Active);
             builder.Property(x => x.ParentId).HasDefaultValue(null);
             builder.HasOne(x => x.Parent).WithMany(x => x.Categories).HasForeignKey(x => x.ParentId);
+            builder.HasOne(x => x.AppUser).WithMany(x => x.Categories).HasForeignKey(x => x.UserId).IsRequired(false);
             builder.Property(x => x.CreatedDate).IsRequired();
         }
     }

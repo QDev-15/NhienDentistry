@@ -16,7 +16,19 @@ namespace NhienDentistry.DataBase.Configurations
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).HasMaxLength(200).IsRequired();
             builder.Property(x => x.CreatedDate).IsRequired();
-            builder.HasMany(x => x.Images).WithOne(x => x.News).HasForeignKey(x => x.NewsId).IsRequired(false);
+            builder.HasMany(x => x.Images).WithMany(x => x.News).UsingEntity<Dictionary<string, object>>(
+                "NewsImage",
+            j => j
+                .HasOne<Image>()
+                .WithMany()
+                .HasForeignKey("ImagesId")
+                .OnDelete(DeleteBehavior.Cascade), // Allow cascade delete for images
+            j => j
+                .HasOne<News>()
+                .WithMany()
+                .HasForeignKey("NewsId")
+                .OnDelete(DeleteBehavior.Restrict));
+
         }
     }
 }
