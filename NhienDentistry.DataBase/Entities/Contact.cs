@@ -13,7 +13,7 @@ namespace NhienDentistry.DataBase.Entities
         public string Email { set; get; }
         public string PhoneNumber { set; get; }
         public string Message { set; get; }
-        public TypeMessage Type { set; get; } = TypeMessage.None;
+        public MessageType Type { set; get; } = MessageType.None;
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 

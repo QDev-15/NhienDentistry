@@ -11,13 +11,14 @@ namespace NhienDentistry.DataBase.Entities
         public int SortOrder { get; set; } = 0;
         public long FileSize { get; set; }
         public string Url { get; set; } = string.Empty;
-
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public List<Image> Images { get; set; } = new List<Image>();
 
         public int? LanguageId { get; set; }
+        public Guid CreatedById {  get; set; }
         public Language Language { get; set; }
-        
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public AppUser CreatedBy { set; get; } 
+
     }
 }
