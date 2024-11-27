@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhientistry.ViewModels.Utilities.Slides
+namespace NhienDentistry.ViewModels.Utilities.Slides
 {
     public class SlideVm
     {

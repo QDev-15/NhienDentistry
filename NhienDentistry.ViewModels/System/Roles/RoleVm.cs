@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhientistry.ViewModels.System.Roles
+namespace NhienDentistry.ViewModels.System.Roles
 {
     public class RoleVm
     {

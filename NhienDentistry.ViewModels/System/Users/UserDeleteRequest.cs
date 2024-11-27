@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhientistry.ViewModels.System.Users
+namespace NhienDentistry.ViewModels.System.Users
 {
     public class UserDeleteRequest
     {

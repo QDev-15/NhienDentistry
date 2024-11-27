@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhientistry.ViewModels.Catalog.Categories
+namespace NhienDentistry.ViewModels.Catalog.Categories
 {
     public class CategoryVm
     {

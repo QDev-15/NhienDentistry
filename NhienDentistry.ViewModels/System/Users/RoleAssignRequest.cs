@@ -1,9 +1,9 @@
-﻿using Nhientistry.ViewModels.Common;
+﻿using NhienDentistry.ViewModels.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhientistry.ViewModels.System.Users
+namespace NhienDentistry.ViewModels.System.Users
 {
     public class RoleAssignRequest
     {

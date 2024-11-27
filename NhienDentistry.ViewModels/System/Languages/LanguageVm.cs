@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhientistry.ViewModels.System.Languages
+namespace NhienDentistry.ViewModels.System.Languages
 {
     public class LanguageVm
     {

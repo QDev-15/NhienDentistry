@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhientistry.ViewModels.Common
+namespace NhienDentistry.ViewModels.Common
 {
     public class SelectItem
     {
