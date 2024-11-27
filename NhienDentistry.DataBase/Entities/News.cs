@@ -9,6 +9,7 @@ namespace NhienDentistry.DataBase.Entities
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public int SortOrder { get; set; } = 0;
+        public bool showHome { get; set; } = false;
         public long FileSize { get; set; }
         public string Url { get; set; } = string.Empty;
         public DateTime CreatedDate { get; set; }

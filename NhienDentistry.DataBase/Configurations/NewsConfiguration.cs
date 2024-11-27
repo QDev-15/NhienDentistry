@@ -16,6 +16,7 @@ namespace NhienDentistry.DataBase.Configurations
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).HasMaxLength(200).IsRequired();
             builder.Property(x => x.CreatedDate).IsRequired();
+            builder.Property(x => x.showHome).IsRequired();
             builder.HasMany(x => x.Images).WithMany(x => x.News).UsingEntity<Dictionary<string, object>>(
                 "NewsImage",
             j => j

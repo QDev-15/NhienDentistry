@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NhienDentistry.DataBase.EF;
 
@@ -11,13 +12,15 @@ using NhienDentistry.DataBase.EF;
 namespace NhienDentistry.DataBase.Migrations
 {
     [DbContext(typeof(NhienDbContext))]
-    partial class NhienDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127035129_addShowHome")]
+    partial class addShowHome
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.20")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -295,7 +298,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a64a710b-2085-43fc-a9bb-a9f041fdcd84",
+                            ConcurrencyStamp = "9dfacf34-c838-4949-80d2-662deb91268d",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nguyenquynhvp.ictu@gmail.com",
                             EmailConfirmed = true,
@@ -304,7 +307,7 @@ namespace NhienDentistry.DataBase.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "nguyenquynhvp.ictu@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF75ZJZJWN61k4I3PfV9TBL/jeiNRRZp5+g7cv9Q/LKrDsDS0GiQCSZ0P2r4X4goJw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKEW+o/gZCX94KJvUF6sEWJhCWClOt3VQFhn4sLNyvO/GkzHRSubdV7QFvzAhr1Ueg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -394,7 +397,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = 1,
                             Alias = "rang-su",
-                            CreatedDate = new DateTime(2024, 11, 27, 11, 16, 52, 584, DateTimeKind.Local).AddTicks(6709),
+                            CreatedDate = new DateTime(2024, 11, 27, 10, 51, 28, 640, DateTimeKind.Local).AddTicks(2097),
                             Name = "Răng Sứ",
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -404,7 +407,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = 2,
                             Alias = "rang-nhua",
-                            CreatedDate = new DateTime(2024, 11, 27, 11, 16, 52, 584, DateTimeKind.Local).AddTicks(6724),
+                            CreatedDate = new DateTime(2024, 11, 27, 10, 51, 28, 661, DateTimeKind.Local).AddTicks(436),
                             Name = "Răng Nhựa",
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -426,8 +429,7 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("LanguageId")
-                        .IsRequired()
+                    b.Property<int>("LanguageId")
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("int");
@@ -740,7 +742,7 @@ namespace NhienDentistry.DataBase.Migrations
                             Id = 1,
                             Alias = "",
                             CreatedById = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            CreatedDate = new DateTime(2024, 11, 27, 11, 16, 52, 584, DateTimeKind.Local).AddTicks(6802),
+                            CreatedDate = new DateTime(2024, 11, 27, 10, 51, 28, 661, DateTimeKind.Local).AddTicks(2478),
                             Description = "Bài viết test",
                             FileSize = 0L,
                             Name = "",

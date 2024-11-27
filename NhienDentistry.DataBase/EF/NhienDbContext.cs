@@ -51,9 +51,9 @@ namespace NhienDentistry.DataBase.EF
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder
-                .ConfigureWarnings(warnings =>
-                    warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+            //optionsBuilder
+            //    .ConfigureWarnings(warnings =>
+            //        warnings.Ignore(RelationalEventId.p));
         }
 
         public DbSet<AppConfig> AppConfigs { get; set; }

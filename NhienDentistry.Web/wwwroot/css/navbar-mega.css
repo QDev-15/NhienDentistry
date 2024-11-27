@@ -155,9 +155,10 @@
         }
 
         .navbar-mega #navbarSupportedContent {
-            background: rgb(255 255 255 / 88%);
+            background: rgb(255 255 255 / 99%);
             margin-top: -3px;
             margin-left: -10px;
+            z-index: 9999;
         }
 
         .navbar-mega button.navbar-toggler {
