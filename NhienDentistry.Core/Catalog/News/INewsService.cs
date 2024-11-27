@@ -1,5 +1,4 @@
 ﻿using NhienDentistry.ViewModels.Catalog.News;
-using NhienDentistry.ViewModels.Catalog.Products;
 using NhienDentistry.ViewModels.Common;
 using System;
 using System.Collections.Generic;
