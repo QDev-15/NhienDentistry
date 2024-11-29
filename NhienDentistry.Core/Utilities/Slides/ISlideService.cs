@@ -1,5 +1,5 @@
-﻿using Nhientistry.ViewModels.System.Roles;
-using Nhientistry.ViewModels.Utilities.Slides;
+﻿using NhienDentistry.ViewModels.System.Roles;
+using NhienDentistry.ViewModels.Utilities.Slides;
 using System;
 using System.Collections.Generic;
 using System.Text;

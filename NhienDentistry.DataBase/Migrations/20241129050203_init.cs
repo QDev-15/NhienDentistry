@@ -150,6 +150,24 @@ namespace NhienDentistry.DataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    FileSize = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Languages",
                 columns: table => new
                 {
@@ -209,6 +227,11 @@ namespace NhienDentistry.DataBase.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AppUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AppUsers_Images_AvatarId",
+                        column: x => x.AvatarId,
+                        principalTable: "Images",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -237,102 +260,6 @@ namespace NhienDentistry.DataBase.Migrations
                         name: "FK_Categories_Categories_ParentId",
                         column: x => x.ParentId,
                         principalTable: "Categories",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Images",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Path = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Type = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    FileSize = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Images", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Images_AppUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AppUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CategoryTranslations",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    SeoDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    SeoTitle = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    LanguageId = table.Column<int>(type: "int", unicode: false, maxLength: 5, nullable: false),
-                    SeoAlias = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoryTranslations", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_CategoryTranslations_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CategoryTranslations_Languages_LanguageId",
-                        column: x => x.LanguageId,
-                        principalTable: "Languages",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Newss",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Alias = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SortOrder = table.Column<int>(type: "int", nullable: false),
-                    FileSize = table.Column<long>(type: "bigint", nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LanguageId = table.Column<int>(type: "int", nullable: true),
-                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Newss", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Newss_AppUsers_CreatedById",
-                        column: x => x.CreatedById,
-                        principalTable: "AppUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Newss_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Newss_Languages_LanguageId",
-                        column: x => x.LanguageId,
-                        principalTable: "Languages",
                         principalColumn: "Id");
                 });
 
@@ -369,27 +296,100 @@ namespace NhienDentistry.DataBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NewsImage",
+                name: "Articles",
                 columns: table => new
                 {
-                    ImagesId = table.Column<int>(type: "int", nullable: false),
-                    NewsId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Alias = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SortOrder = table.Column<int>(type: "int", nullable: false),
+                    showHome = table.Column<bool>(type: "bit", nullable: false),
+                    FileSize = table.Column<long>(type: "bigint", nullable: false),
+                    Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LanguageId = table.Column<int>(type: "int", nullable: true),
+                    CreatedById = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_NewsImage", x => new { x.ImagesId, x.NewsId });
+                    table.PrimaryKey("PK_Articles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_NewsImage_Images_ImagesId",
+                        name: "FK_Articles_AppUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Articles_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Articles_Languages_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Languages",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CategoryTranslations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    SeoDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    SeoTitle = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    LanguageId = table.Column<int>(type: "int", unicode: false, maxLength: 5, nullable: false),
+                    SeoAlias = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CategoryTranslations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CategoryTranslations_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CategoryTranslations_Languages_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Languages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ArticlesImage",
+                columns: table => new
+                {
+                    ArticlesId = table.Column<int>(type: "int", nullable: false),
+                    ImagesId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ArticlesImage", x => new { x.ArticlesId, x.ImagesId });
+                    table.ForeignKey(
+                        name: "FK_ArticlesImage_Articles_ArticlesId",
+                        column: x => x.ArticlesId,
+                        principalTable: "Articles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ArticlesImage_Images_ImagesId",
                         column: x => x.ImagesId,
                         principalTable: "Images",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_NewsImage_Newss_NewsId",
-                        column: x => x.NewsId,
-                        principalTable: "Newss",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -415,7 +415,7 @@ namespace NhienDentistry.DataBase.Migrations
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "AccessFailedCount", "AvatarId", "ConcurrencyStamp", "Dob", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), 0, null, "b810eb5b-61d7-4c02-8b9b-64719542007c", new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "nguyenquynhvp.ictu@gmail.com", true, "Quynh", "Nguyen", false, null, "nguyenquynhvp.ictu@gmail.com", "admin", "AQAAAAIAAYagAAAAENNTMxz2gfeaDSAlbRl+u9nn09U7UJ95ZsAouEGhZQoft/fx1IF4XMsVfZHBFUkgNw==", null, false, "", false, "admin" });
+                values: new object[] { new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), 0, null, "481479a4-5cf0-41b9-8115-984cf02baede", new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "nguyenquynhvp.ictu@gmail.com", true, "Quynh", "Nguyen", false, null, "nguyenquynhvp.ictu@gmail.com", "admin", "AQAAAAIAAYagAAAAEPM3hv8woHN0f2PrOo2lpVv9MnfbvEu6jf6tk8rmKCFWIzCD1Fcc3P5bjETqkhKJrw==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Languages",
@@ -431,14 +431,9 @@ namespace NhienDentistry.DataBase.Migrations
                 columns: new[] { "Id", "Alias", "CreatedDate", "Name", "ParentId", "Status", "UpdatedDate", "UserId" },
                 values: new object[,]
                 {
-                    { 1, "rang-su", new DateTime(2024, 11, 26, 15, 21, 8, 608, DateTimeKind.Local).AddTicks(2512), "Răng Sứ", null, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("69bd714f-9576-45ba-b5b7-f00649be00de") },
-                    { 2, "rang-nhua", new DateTime(2024, 11, 26, 15, 21, 8, 609, DateTimeKind.Local).AddTicks(1403), "Răng Nhựa", null, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("69bd714f-9576-45ba-b5b7-f00649be00de") }
+                    { 1, "rang-su", new DateTime(2024, 11, 29, 12, 2, 3, 469, DateTimeKind.Local).AddTicks(8874), "Răng Sứ", null, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("69bd714f-9576-45ba-b5b7-f00649be00de") },
+                    { 2, "rang-nhua", new DateTime(2024, 11, 29, 12, 2, 3, 469, DateTimeKind.Local).AddTicks(8893), "Răng Nhựa", null, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("69bd714f-9576-45ba-b5b7-f00649be00de") }
                 });
-
-            migrationBuilder.InsertData(
-                table: "Newss",
-                columns: new[] { "Id", "Alias", "CategoryId", "CreatedById", "CreatedDate", "Description", "FileSize", "LanguageId", "Name", "SortOrder", "UpdatedDate", "Url" },
-                values: new object[] { 1, "", null, new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), new DateTime(2024, 11, 26, 15, 21, 8, 609, DateTimeKind.Local).AddTicks(3284), "Bài viết test", 0L, null, "", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "" });
 
             migrationBuilder.InsertData(
                 table: "Slides",
@@ -454,6 +449,11 @@ namespace NhienDentistry.DataBase.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Articles",
+                columns: new[] { "Id", "Alias", "CategoryId", "CreatedById", "CreatedDate", "Description", "FileSize", "LanguageId", "Name", "SortOrder", "UpdatedDate", "Url", "showHome" },
+                values: new object[] { 1, "", 1, new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), new DateTime(2024, 11, 29, 12, 2, 3, 469, DateTimeKind.Local).AddTicks(9010), "Bài viết test", 0L, null, "", 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", false });
+
+            migrationBuilder.InsertData(
                 table: "CategoryTranslations",
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "LanguageId", "Name", "SeoAlias", "SeoDescription", "SeoTitle", "UpdatedDate" },
                 values: new object[,]
@@ -467,7 +467,29 @@ namespace NhienDentistry.DataBase.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AppUsers_AvatarId",
                 table: "AppUsers",
-                column: "AvatarId");
+                column: "AvatarId",
+                unique: true,
+                filter: "[AvatarId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Articles_CategoryId",
+                table: "Articles",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Articles_CreatedById",
+                table: "Articles",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Articles_LanguageId",
+                table: "Articles",
+                column: "LanguageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ArticlesImage_ImagesId",
+                table: "ArticlesImage",
+                column: "ImagesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_ParentId",
@@ -490,31 +512,6 @@ namespace NhienDentistry.DataBase.Migrations
                 column: "LanguageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Images_UserId",
-                table: "Images",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_NewsImage_NewsId",
-                table: "NewsImage",
-                column: "NewsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Newss_CategoryId",
-                table: "Newss",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Newss_CreatedById",
-                table: "Newss",
-                column: "CreatedById");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Newss_LanguageId",
-                table: "Newss",
-                column: "LanguageId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Slides_ImageId",
                 table: "Slides",
                 column: "ImageId");
@@ -523,22 +520,11 @@ namespace NhienDentistry.DataBase.Migrations
                 name: "IX_Slides_UserId",
                 table: "Slides",
                 column: "UserId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_AppUsers_Images_AvatarId",
-                table: "AppUsers",
-                column: "AvatarId",
-                principalTable: "Images",
-                principalColumn: "Id");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_AppUsers_Images_AvatarId",
-                table: "AppUsers");
-
             migrationBuilder.DropTable(
                 name: "AppConfigs");
 
@@ -561,6 +547,9 @@ namespace NhienDentistry.DataBase.Migrations
                 name: "AppUserTokens");
 
             migrationBuilder.DropTable(
+                name: "ArticlesImage");
+
+            migrationBuilder.DropTable(
                 name: "Bases");
 
             migrationBuilder.DropTable(
@@ -573,13 +562,10 @@ namespace NhienDentistry.DataBase.Migrations
                 name: "Loggers");
 
             migrationBuilder.DropTable(
-                name: "NewsImage");
-
-            migrationBuilder.DropTable(
                 name: "Slides");
 
             migrationBuilder.DropTable(
-                name: "Newss");
+                name: "Articles");
 
             migrationBuilder.DropTable(
                 name: "Categories");
@@ -588,10 +574,10 @@ namespace NhienDentistry.DataBase.Migrations
                 name: "Languages");
 
             migrationBuilder.DropTable(
-                name: "Images");
+                name: "AppUsers");
 
             migrationBuilder.DropTable(
-                name: "AppUsers");
+                name: "Images");
         }
     }
 }

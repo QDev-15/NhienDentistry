@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NhienDentistry.ViewModels.Catalog.News
+namespace NhienDentistry.ViewModels.Catalog.Articles
 {
-    public class NewsRequestCreated
+    public class ArticleRequestUpdated
     {
+        public int Id { get; set; }
         public string Alias { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;

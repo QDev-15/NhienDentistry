@@ -1,20 +1,8 @@
 ﻿using NhienDentistry.DataBase.EF;
-using NhienDentistry.DataBase.Entities;
-using Nhientistry.ViewModels.Common;
-using Nhientistry.ViewModels.System.Languages;
-using Nhientistry.ViewModels.System.Users;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+using NhienDentistry.ViewModels.Common;
+using NhienDentistry.ViewModels.System.Languages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NhienDentistry.Core.System.Languages
 {

@@ -1,6 +1,6 @@
 ﻿using NhienDentistry.DataBase.Entities;
-using Nhientistry.ViewModels.Common;
-using Nhientistry.ViewModels.System.Users;
+using NhienDentistry.ViewModels.Common;
+using NhienDentistry.ViewModels.System.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

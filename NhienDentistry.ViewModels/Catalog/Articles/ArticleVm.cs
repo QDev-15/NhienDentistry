@@ -1,8 +1,12 @@
-﻿using NhienDentistry.DataBase.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace NhienDentistry.DataBase.Entities
+namespace NhienDentistry.ViewModels.Catalog.Articles
 {
-    public class News
+    public class ArticleVm
     {
         public int Id { get; set; }
         public string Alias { get; set; } = string.Empty;
@@ -14,12 +18,6 @@ namespace NhienDentistry.DataBase.Entities
         public string Url { get; set; } = string.Empty;
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
-        public List<Image> Images { get; set; } = new List<Image>();
-
-        public int? LanguageId { get; set; }
-        public Guid CreatedById {  get; set; }
-        public Language Language { get; set; }
-        public AppUser CreatedBy { set; get; } 
 
     }
 }

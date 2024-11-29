@@ -1,5 +1,5 @@
 ﻿using NhienDentistry.DataBase.EF;
-using Nhientistry.ViewModels.Catalog.Categories;
+using NhienDentistry.ViewModels.Catalog.Categories;
 using System;
 using System.Collections.Generic;
 using System.Text;

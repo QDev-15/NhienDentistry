@@ -1,8 +1,4 @@
-﻿using Nhientistry.ViewModels.Catalog.Categories;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NhienDentistry.ViewModels.Catalog.Categories;
 
 namespace NhienDentistry.Core.Catalog.Categories
 {

@@ -1,5 +1,5 @@
 ﻿using NhienDentistry.DataBase.Entities;
-using Nhientistry.ViewModels.System.Roles;
+using NhienDentistry.ViewModels.System.Roles;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -18,7 +18,7 @@ namespace NhienDentistry.DataBase.Entities
         public Category Parent { set; get; }
         public AppUser AppUser { set; get; }
         public List<Category> Categories { set; get; }
-        public List<News> News { set; get; }
+        public List<Article> Articles { set; get; }
         public List<CategoryTranslation> CategoryTranslations { get; set; }
     }
 }

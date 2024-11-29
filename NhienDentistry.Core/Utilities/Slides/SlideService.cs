@@ -1,8 +1,8 @@
 ﻿using NhienDentistry.Core.System.Roles;
 using NhienDentistry.DataBase.EF;
 using NhienDentistry.DataBase.Entities;
-using Nhientistry.ViewModels.System.Roles;
-using Nhientistry.ViewModels.Utilities.Slides;
+using NhienDentistry.ViewModels.System.Roles;
+using NhienDentistry.ViewModels.Utilities.Slides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -31,7 +31,7 @@ namespace NhienDentistry.Core.Utilities.Slides
                     Name = x.Name,
                     Description = x.Description,
                     Url = x.Url,
-                    Image = x.Image
+                    ImageId = x.Image.Id
                 }).ToListAsync();
 
             return slides;

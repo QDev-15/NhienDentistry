@@ -1,5 +1,5 @@
-﻿using Nhientistry.ViewModels.Common;
-using Nhientistry.ViewModels.System.Users;
+﻿using NhienDentistry.ViewModels.Common;
+using NhienDentistry.ViewModels.System.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;

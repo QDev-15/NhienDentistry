@@ -35,7 +35,7 @@ namespace NhienDentistry.DataBase.EF
             modelBuilder.ApplyConfiguration(new ImageConfiguration());
             modelBuilder.ApplyConfiguration(new LanguageConfiguration());
             modelBuilder.ApplyConfiguration(new LoggerConfiguration());
-            modelBuilder.ApplyConfiguration(new NewsConfiguration());
+            modelBuilder.ApplyConfiguration(new ArticlesConfiguration());
             modelBuilder.ApplyConfiguration(new SlideConfiguration());
 
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
@@ -64,7 +64,7 @@ namespace NhienDentistry.DataBase.EF
         public DbSet<Image> Images { get; set; }    
         public DbSet<Language> Languages { get; set; }
         public DbSet<Logger> Loggers { get; set; }
-        public DbSet<News> News { get; set; }
+        public DbSet<Article> Articles { get; set; }
         public DbSet<Slide> Slides { get; set;}
 
     }

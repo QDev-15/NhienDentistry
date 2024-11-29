@@ -12,7 +12,7 @@ using NhienDentistry.DataBase.EF;
 namespace NhienDentistry.DataBase.Migrations
 {
     [DbContext(typeof(NhienDbContext))]
-    [Migration("20241126082109_init")]
+    [Migration("20241129050203_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -20,10 +20,25 @@ namespace NhienDentistry.DataBase.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "7.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ArticlesImage", b =>
+                {
+                    b.Property<int>("ArticlesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ImagesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArticlesId", "ImagesId");
+
+                    b.HasIndex("ImagesId");
+
+                    b.ToTable("ArticlesImage");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
@@ -131,21 +146,6 @@ namespace NhienDentistry.DataBase.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("AppUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("NewsImage", b =>
-                {
-                    b.Property<int>("ImagesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NewsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ImagesId", "NewsId");
-
-                    b.HasIndex("NewsId");
-
-                    b.ToTable("NewsImage");
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.AppConfig", b =>
@@ -289,7 +289,9 @@ namespace NhienDentistry.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AvatarId");
+                    b.HasIndex("AvatarId")
+                        .IsUnique()
+                        .HasFilter("[AvatarId] IS NOT NULL");
 
                     b.ToTable("AppUsers", (string)null);
 
@@ -298,7 +300,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b810eb5b-61d7-4c02-8b9b-64719542007c",
+                            ConcurrencyStamp = "481479a4-5cf0-41b9-8115-984cf02baede",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nguyenquynhvp.ictu@gmail.com",
                             EmailConfirmed = true,
@@ -307,11 +309,88 @@ namespace NhienDentistry.DataBase.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "nguyenquynhvp.ictu@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAENNTMxz2gfeaDSAlbRl+u9nn09U7UJ95ZsAouEGhZQoft/fx1IF4XMsVfZHBFUkgNw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPM3hv8woHN0f2PrOo2lpVv9MnfbvEu6jf6tk8rmKCFWIzCD1Fcc3P5bjETqkhKJrw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
                             UserName = "admin"
+                        });
+                });
+
+            modelBuilder.Entity("NhienDentistry.DataBase.Entities.Article", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Alias")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("CreatedById")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("showHome")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("Articles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Alias = "",
+                            CategoryId = 1,
+                            CreatedById = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
+                            CreatedDate = new DateTime(2024, 11, 29, 12, 2, 3, 469, DateTimeKind.Local).AddTicks(9010),
+                            Description = "Bài viết test",
+                            FileSize = 0L,
+                            Name = "",
+                            SortOrder = 0,
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Url = "",
+                            showHome = false
                         });
                 });
 
@@ -397,7 +476,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = 1,
                             Alias = "rang-su",
-                            CreatedDate = new DateTime(2024, 11, 26, 15, 21, 8, 608, DateTimeKind.Local).AddTicks(2512),
+                            CreatedDate = new DateTime(2024, 11, 29, 12, 2, 3, 469, DateTimeKind.Local).AddTicks(8874),
                             Name = "Răng Sứ",
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -407,7 +486,7 @@ namespace NhienDentistry.DataBase.Migrations
                         {
                             Id = 2,
                             Alias = "rang-nhua",
-                            CreatedDate = new DateTime(2024, 11, 26, 15, 21, 8, 609, DateTimeKind.Local).AddTicks(1403),
+                            CreatedDate = new DateTime(2024, 11, 29, 12, 2, 3, 469, DateTimeKind.Local).AddTicks(8893),
                             Name = "Răng Nhựa",
                             Status = 1,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -429,7 +508,8 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("LanguageId")
+                    b.Property<int?>("LanguageId")
+                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("int");
@@ -584,12 +664,7 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Images");
                 });
@@ -675,78 +750,6 @@ namespace NhienDentistry.DataBase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Loggers", (string)null);
-                });
-
-            modelBuilder.Entity("NhienDentistry.DataBase.Entities.News", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Alias")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("FileSize")
-                        .HasColumnType("bigint");
-
-                    b.Property<int?>("LanguageId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("CreatedById");
-
-                    b.HasIndex("LanguageId");
-
-                    b.ToTable("Newss", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Alias = "",
-                            CreatedById = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            CreatedDate = new DateTime(2024, 11, 26, 15, 21, 8, 609, DateTimeKind.Local).AddTicks(3284),
-                            Description = "Bài viết test",
-                            FileSize = 0L,
-                            Name = "",
-                            SortOrder = 0,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Url = ""
-                        });
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Slide", b =>
@@ -873,28 +876,53 @@ namespace NhienDentistry.DataBase.Migrations
                         });
                 });
 
-            modelBuilder.Entity("NewsImage", b =>
+            modelBuilder.Entity("ArticlesImage", b =>
                 {
+                    b.HasOne("NhienDentistry.DataBase.Entities.Article", null)
+                        .WithMany()
+                        .HasForeignKey("ArticlesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("NhienDentistry.DataBase.Entities.Image", null)
                         .WithMany()
                         .HasForeignKey("ImagesId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NhienDentistry.DataBase.Entities.News", null)
-                        .WithMany()
-                        .HasForeignKey("NewsId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.AppUser", b =>
                 {
                     b.HasOne("NhienDentistry.DataBase.Entities.Image", "Avatar")
-                        .WithMany("AppUsers")
-                        .HasForeignKey("AvatarId");
+                        .WithOne("User")
+                        .HasForeignKey("NhienDentistry.DataBase.Entities.AppUser", "AvatarId");
 
                     b.Navigation("Avatar");
+                });
+
+            modelBuilder.Entity("NhienDentistry.DataBase.Entities.Article", b =>
+                {
+                    b.HasOne("NhienDentistry.DataBase.Entities.Category", "Category")
+                        .WithMany("Articles")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NhienDentistry.DataBase.Entities.AppUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NhienDentistry.DataBase.Entities.Language", "Language")
+                        .WithMany("Articles")
+                        .HasForeignKey("LanguageId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("Language");
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Category", b =>
@@ -931,38 +959,6 @@ namespace NhienDentistry.DataBase.Migrations
                     b.Navigation("Language");
                 });
 
-            modelBuilder.Entity("NhienDentistry.DataBase.Entities.Image", b =>
-                {
-                    b.HasOne("NhienDentistry.DataBase.Entities.AppUser", "User")
-                        .WithMany("Images")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("NhienDentistry.DataBase.Entities.News", b =>
-                {
-                    b.HasOne("NhienDentistry.DataBase.Entities.Category", null)
-                        .WithMany("News")
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("NhienDentistry.DataBase.Entities.AppUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NhienDentistry.DataBase.Entities.Language", "Language")
-                        .WithMany("Newss")
-                        .HasForeignKey("LanguageId");
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("Language");
-                });
-
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Slide", b =>
                 {
                     b.HasOne("NhienDentistry.DataBase.Entities.Image", "Image")
@@ -984,32 +980,31 @@ namespace NhienDentistry.DataBase.Migrations
                 {
                     b.Navigation("Categories");
 
-                    b.Navigation("Images");
-
                     b.Navigation("Slides");
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Category", b =>
                 {
+                    b.Navigation("Articles");
+
                     b.Navigation("Categories");
 
                     b.Navigation("CategoryTranslations");
-
-                    b.Navigation("News");
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Image", b =>
                 {
-                    b.Navigation("AppUsers");
-
                     b.Navigation("Slides");
+
+                    b.Navigation("User")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("NhienDentistry.DataBase.Entities.Language", b =>
                 {
-                    b.Navigation("CategoryTranslations");
+                    b.Navigation("Articles");
 
-                    b.Navigation("Newss");
+                    b.Navigation("CategoryTranslations");
                 });
 #pragma warning restore 612, 618
         }

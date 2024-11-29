@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NhienDentistry.ViewModels.Catalog.News
+namespace NhienDentistry.ViewModels.Catalog.Articles
 
 {
-    public class GetManageNewsPagingRequest : PagingRequestBase
+    public class GetManageArticlePagingRequest : PagingRequestBase
     {
         public string Keyword { get; set; }
 

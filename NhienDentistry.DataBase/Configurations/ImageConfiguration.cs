@@ -12,8 +12,7 @@ public class ImageConfiguration : IEntityTypeConfiguration<Image>
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).UseIdentityColumn();
         builder.Property(x => x.Path).IsRequired();
-        builder.Property(x => x.Status).IsRequired();
-        builder.HasMany(x => x.News).WithMany(x => x.Images);
+        builder.HasMany(x => x.Articles).WithMany(x => x.Images);
         builder.Property(x => x.CreatedDate).IsRequired();
     }
 }

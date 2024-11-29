@@ -15,7 +15,6 @@ namespace NhienDentistry.DataBase.Entities
         public int? AvatarId { get; set; }
         public Image Avatar { get; set; }
         public List<Category> Categories { get; set; } = new List<Category>();
-        public List<Image> Images { get; set; } = new List<Image> { };
         public List<Slide> Slides { get; set; } = new List<Slide> { };
     }
 }
