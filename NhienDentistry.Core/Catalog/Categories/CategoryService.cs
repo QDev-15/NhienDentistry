@@ -20,30 +20,24 @@ namespace NhienDentistry.Core.Catalog.Categories
 
         public async Task<List<CategoryVm>> GetAll(int languageId)
         {
-            var query = from c in _context.Categories
-                        join ct in _context.CategoryTranslations on c.Id equals ct.CategoryId
-                        where ct.LanguageId == languageId
-                        select new { c, ct };
-            return await query.Select(x => new CategoryVm()
+            var query = await _context.Categories.Where(x => x.CategoryTranslations.FirstOrDefault(x => x.LanguageId == languageId) != null).ToListAsync();
+            return query.Select(x => new CategoryVm()
             {
-                Id = x.c.Id,
-                Name = x.ct.Name,
-                ParentId = x.c.ParentId
-            }).ToListAsync();
+                Id = x.Id,
+                Name = x.Name,
+                ParentId = x.ParentId
+            }).ToList();
         }
 
         public async Task<CategoryVm> GetById(int languageId, int id)
         {
-            var query = from c in _context.Categories
-                        join ct in _context.CategoryTranslations on c.Id equals ct.CategoryId
-                        where ct.LanguageId == languageId && c.Id == id
-                        select new { c, ct };
-            return await query.Select(x => new CategoryVm()
+            var query = await _context.Categories.Where(x => x.CategoryTranslations.FirstOrDefault(x => x.LanguageId == languageId) != null).ToListAsync();
+            return query.Select(x => new CategoryVm()
             {
-                Id = x.c.Id,
-                Name = x.ct.Name,
-                ParentId = x.c.ParentId
-            }).FirstOrDefaultAsync();
+                Id = x.Id,
+                Name = x.Name,
+                ParentId = x.ParentId
+            }).FirstOrDefault();
         }
     }
 }

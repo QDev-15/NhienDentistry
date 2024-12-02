@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhienDentistry.Core", "Nhie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhienDentistry.ViewModels", "NhienDentistry.ViewModels\NhienDentistry.ViewModels.csproj", "{5509B8AE-50B5-4E07-85AD-043572DA6C46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhienDentistry.BackendApi", "NhienDentistry.BackendApi\NhienDentistry.BackendApi.csproj", "{67B3F8CF-B796-4B64-A729-F802B628F9D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5509B8AE-50B5-4E07-85AD-043572DA6C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5509B8AE-50B5-4E07-85AD-043572DA6C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5509B8AE-50B5-4E07-85AD-043572DA6C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B3F8CF-B796-4B64-A729-F802B628F9D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B3F8CF-B796-4B64-A729-F802B628F9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B3F8CF-B796-4B64-A729-F802B628F9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B3F8CF-B796-4B64-A729-F802B628F9D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,6 @@
+@NhienDentistry.BackendApi_HostAddress = http://localhost:5111
+
+GET {{NhienDentistry.BackendApi_HostAddress}}/api/categories/getall
+Accept: application/json
+
+###

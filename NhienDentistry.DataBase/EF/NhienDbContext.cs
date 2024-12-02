@@ -15,11 +15,19 @@ namespace NhienDentistry.DataBase.EF
 {
     public class NhienDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public NhienDbContext(DbContextOptions options) : base(options)
+        private readonly IConfiguration _configuration;
+        public NhienDbContext(DbContextOptions<NhienDbContext> options) : base(options)
         {
-            
+            //_configuration = configuration;
         }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    var connectionString = _configuration.GetConnectionString("NhienDentistryConnection");
+            //    optionsBuilder.UseSqlServer(connectionString);
+            //}
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Configure using Fluent API
@@ -49,12 +57,7 @@ namespace NhienDentistry.DataBase.EF
             modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //optionsBuilder
-            //    .ConfigureWarnings(warnings =>
-            //        warnings.Ignore(RelationalEventId.p));
-        }
+        
 
         public DbSet<AppConfig> AppConfigs { get; set; }
         public DbSet<Base> Bases { get; set; }
