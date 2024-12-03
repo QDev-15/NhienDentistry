@@ -1,13 +1,16 @@
-﻿using NhienDentistry.Core.Common;
+﻿using Microsoft.EntityFrameworkCore;
+using NhienDentistry.Core.Common;
 using NhienDentistry.DataBase.EF;
 using NhienDentistry.DataBase.Entities;
 using NhienDentistry.ViewModels.Catalog.Articles;
 using NhienDentistry.ViewModels.Common;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NhienDentistry.Core.Catalog.Articles
 {
@@ -67,19 +70,85 @@ namespace NhienDentistry.Core.Catalog.Articles
             };
         }
 
-        public Task<bool> Delete(int productId)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var article = _context.Articles.FirstOrDefault(a => a.Id == id);
+                if (article != null)
+                {
+                    if (article.Images.Count > 0)
+                    {
+                        _context.Images.RemoveRange(article.Images);
+                    }
+                    article.Status = Date.Enums.Status.InActive;
+                }
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;   
+            }
         }
 
-        public Task<PagedResult<ArticleVm>> GetAllPaging(GetManageArticlePagingRequest request)
+        public async Task<PagedResult<ArticleVm>> GetAllPaging(GetManageArticlePagingRequest request)
         {
-            throw new NotImplementedException();
+            var query = _context.Articles;
+            if (query != null && !string.IsNullOrEmpty(request.Keyword))
+            {
+                query = (DbSet<Article>)query.Where(x => x.Name.Contains(request.Keyword, StringComparison.CurrentCultureIgnoreCase));
+            }
+            if (query != null && request.LanguageId != null)
+            {
+                query = (DbSet<Article>?)query.Where(x => x.LanguageId == request.LanguageId);
+            }
+            if (query != null && request.CategoryId != null)
+            {
+                query = (DbSet<Article>?)query.Where(x => x.CategoryId == request.CategoryId);
+            }
+            var total = query.Count();
+            query = (DbSet<Article>)query.Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize);
+            var articles = await query.Select(x => new ArticleVm() {
+                Name = x.Name,
+                Alias = x.Alias,
+                CreatedDate = x.CreatedDate,
+                Description = x.Description,
+                showHome = x.showHome,
+                Id = x.Id,
+                UpdatedDate = x.UpdatedDate
+            }).ToListAsync();
+            //4. Select and projection
+            var pagedResult = new PagedResult<ArticleVm>()
+            {
+                TotalRecords = total,
+                PageSize = request.PageSize,
+                PageIndex = request.PageIndex,
+                Items = articles
+            };
+            return pagedResult;
+
         }
 
-        public Task<ArticleVm> GetById(int productId, string languageId)
+        public async Task<ArticleVm> GetById(int id)
         {
-            throw new NotImplementedException();
+            var query = await _context.Articles.Where(x => x.Id == id).ToListAsync();
+            var article = new ArticleVm();
+            if (query != null)
+            {
+                article = query.Select(x => new ArticleVm()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Alias = x.Alias,
+                    CreatedDate = x.CreatedDate,
+                    Description = x.Description,
+                    showHome = x.showHome,
+                    SortOrder = x.SortOrder,
+                    UpdatedDate = x.UpdatedDate
+                }).FirstOrDefault();
+            }
+            return article!;
         }
 
         public Task<ArticleVm> Update(ArticleRequestUpdated request)

@@ -14,9 +14,9 @@ namespace NhienDentistry.Core.Catalog.Articles
 
         Task<ArticleVm> Update(ArticleRequestUpdated request);
 
-        Task<bool> Delete(int productId);
+        Task<bool> Delete(int id);
 
-        Task<ArticleVm> GetById(int productId, string languageId);
+        Task<ArticleVm> GetById(int id);
         Task<PagedResult<ArticleVm>> GetAllPaging(GetManageArticlePagingRequest request);
     }
 }

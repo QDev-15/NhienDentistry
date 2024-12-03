@@ -10,7 +10,7 @@ namespace NhienDentistry.ViewModels.Catalog.Articles
     {
         public string Keyword { get; set; }
 
-        public string LanguageId { get; set; }
+        public int? LanguageId { get; set; }
 
         public int? CategoryId { get; set; }
     }
