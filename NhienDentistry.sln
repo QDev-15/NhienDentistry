@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhienDentistry.ViewModels",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhienDentistry.BackendApi", "NhienDentistry.BackendApi\NhienDentistry.BackendApi.csproj", "{67B3F8CF-B796-4B64-A729-F802B628F9D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhienDentistry.WebAdmin", "NhienDentistry.WebAdmin\NhienDentistry.WebAdmin.csproj", "{1E384A8E-32E9-48D2-956F-1B22CF570E9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{67B3F8CF-B796-4B64-A729-F802B628F9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67B3F8CF-B796-4B64-A729-F802B628F9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67B3F8CF-B796-4B64-A729-F802B628F9D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E384A8E-32E9-48D2-956F-1B22CF570E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E384A8E-32E9-48D2-956F-1B22CF570E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E384A8E-32E9-48D2-956F-1B22CF570E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E384A8E-32E9-48D2-956F-1B22CF570E9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

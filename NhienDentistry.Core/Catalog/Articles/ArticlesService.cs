@@ -14,7 +14,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NhienDentistry.Core.Catalog.Articles
 {
-    internal class ArticlesService : IArticlesService
+    public class ArticlesService : IArticlesService
     {
         private readonly NhienDbContext _context;
         private readonly IStorageService _fileStorageService;

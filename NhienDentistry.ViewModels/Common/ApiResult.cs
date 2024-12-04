@@ -9,6 +9,7 @@ namespace NhienDentistry.ViewModels.Common
         public bool IsSuccessed { get; set; }
 
         public string Message { get; set; }
+        public object data { get; set; }
 
         public T ResultObj { get; set; }
     }

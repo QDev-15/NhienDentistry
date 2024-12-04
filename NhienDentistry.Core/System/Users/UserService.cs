@@ -160,7 +160,10 @@ namespace NhienDentistry.Core.System.Users
             {
                 return new ApiSuccessResult<bool>();
             }
-            return new ApiErrorResult<bool>("Đăng ký không thành công");
+            return new ApiErrorResult<bool>("Đăng ký không thành công") { 
+                IsSuccessed = false,
+                data = result
+            };
         }
 
         public async Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request)
