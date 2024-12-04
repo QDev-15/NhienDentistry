@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using NhienDentistry.Utilities.Constants;
 using NhienDentistry.WebAdmin.Models;
 using System.Diagnostics;
 
@@ -15,6 +16,7 @@ namespace NhienDentistry.WebAdmin.Controllers
 
         public IActionResult Index()
         {
+            var user = User.Identity.Name;
             return View();
         }
 
@@ -27,6 +29,15 @@ namespace NhienDentistry.WebAdmin.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public IActionResult Language(NavigationViewModel viewModel)
+        {
+            HttpContext.Session.SetString(SystemConstants.AppSettings.DefaultLanguageId,
+                viewModel.CurrentLanguageId);
+
+            return Redirect(viewModel.ReturnUrl);
         }
     }
 }

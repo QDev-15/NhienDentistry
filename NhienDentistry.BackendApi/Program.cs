@@ -17,7 +17,15 @@ using NhienDentistry.DataBase.Entities;
 using NhienDentistry.ViewModels.System.Users;
 
 var builder = WebApplication.CreateBuilder(args);
-
+// Ensure you're not using SSL (for development only)
+if (builder.Environment.IsDevelopment())
+{
+    builder.WebHost.ConfigureKestrel(options =>
+    {
+        // Disable HTTPS if you don't need it
+        options.ConfigureHttpsDefaults(co => { co.SslProtocols = System.Security.Authentication.SslProtocols.None; });
+    });
+}
 
 // Add service collection
 builder.Services.AddTransient<IStorageService, FileStorageService>();
